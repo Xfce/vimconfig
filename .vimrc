@@ -180,12 +180,12 @@ nnoremap <silent><C-F12> :cn<CR>
 inoremap <silent><C-F12> <ESC>:cn<CR>
 vnoremap <silent><C-F12> <ESC>:cn<CR>
 "use C-j C-k to change the buf
-nnoremap <silent><M-j> :bn<CR>
-inoremap <silent><M-j> <ESC>:bn<CR>
-vnoremap <silent><M-j> <ESC>:bn<CR>
-nnoremap <silent><M-k> :bp<CR>
-inoremap <silent><M-k> <ESC>:bp<CR>
-vnoremap <silent><M-k> <ESC>:bp<CR>
+nnoremap <silent><C-j> :bn<CR>
+inoremap <silent><C-j> <ESC>:bn<CR>
+vnoremap <silent><C-j> <ESC>:bn<CR>
+nnoremap <silent><C-k> :bp<CR>
+inoremap <silent><C-k> <ESC>:bp<CR>
+vnoremap <silent><C-k> <ESC>:bp<CR>
 "highlight corrent line
 set cursorline
 inoremap <silent>jk <esc>
