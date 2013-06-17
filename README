@@ -1,3 +1,11 @@
 This is my vim configure file,just want to be bakup
 
 Use Vundle to keep track the plugins.
+
+You can clone this repo to .vim and
+
+git submodule init
+git submodule update
+
+Type these two commands to install vundle
+Type :BundleInstall in vim,it will install all the other plugins.
