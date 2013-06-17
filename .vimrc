@@ -46,8 +46,6 @@ else
 endif
 Bundle 'majutsushi/tagbar'
 nnoremap <silent><F8> :TagbarToggle<CR>
-Bundle 'fholgado/minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim = 1
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'nathanaelkane/vim-indent-guides'
