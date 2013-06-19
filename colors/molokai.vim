@@ -108,6 +108,7 @@ hi Visual                        guibg=#403D3D
 hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
 "hi WildMenu        guifg=#09ff00 guibg=#000000 gui=bold
 hi WildMenu        guifg=#66D9EF guibg=#000000 gui=bold
+hi SyntasticWarningSign guifg=yellow guibg=bg
 
 if s:molokai_original == 1
    hi Normal          guifg=#F8F8F2 guibg=#272822
