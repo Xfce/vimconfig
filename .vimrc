@@ -65,6 +65,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=cyan ctermbg=4
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors = 0
 Bundle 'scrooloose/syntastic'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_loc_list_height=5
 "Bundle 'ervandew/supertab'
