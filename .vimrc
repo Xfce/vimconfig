@@ -9,14 +9,17 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'Rip-Rip/clang_complete'
-let g:clang_periodic_quickfix=1
-let g:clang_complete_macros=1
-let g:clang_complete_patterns=1
-let g:clang_auto_select=1
-inoremap <expr> <up> pumvisible() ? "\<C-p>":""
-inoremap <expr> <down> pumvisible() ? "\<C-n>":""
-inoremap <expr> <CR> pumvisible() ? "\<C-y>":"\<CR>"
+"Bundle 'Rip-Rip/clang_complete'
+"let g:clang_periodic_quickfix=1
+"let g:clang_complete_macros=1
+"let g:clang_complete_patterns=1
+"let g:clang_auto_select=1
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_key_invoke_completion = '<leader>c' 
+let g:ycm_global_ycm_extra_conf = '/home/pycq2002/.ycm_global_extra_conf.py'
+"inoremap <expr> <up> pumvisible() ? "\<C-p>":""
+"inoremap <expr> <down> pumvisible() ? "\<C-n>":""
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>":"\<CR>"
 Bundle 'scrooloose/nerdtree'
 "configuration of NERDTree
 let NERDShutUp=1
@@ -32,6 +35,9 @@ let NERDTreeWinPos='left'
 nnoremap <silent><leader>fe :NERDTreeToggle<CR>
 "mapleader to toggle NERDTree
 Bundle 'SirVer/ultisnips'
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 Bundle 'Lokaltog/vim-powerline'
 "powerline
 if has("gui_running")
@@ -102,20 +108,21 @@ set shiftwidth=4
 set tabstop=4
 
 set rnu "show the relativenumber of lines
-au FocusLost * :call SetNu()
-au FocusGained * :call SetRnu()
-au InsertEnter * :call SetNu()
-au InsertLeave * :call SetRnu()
-function! SetNu()
-    if (&relativenumber==1 || &number==1)
-        set number
-    endif
-endfunc
-function! SetRnu()
-    if (&relativenumber==1 || &number==1)
-        set relativenumber
-    endif
-endfunc
+set nu
+"au FocusLost * :call SetNu()
+"au FocusGained * :call SetRnu()
+"au InsertEnter * :call SetNu()
+"au InsertLeave * :call SetRnu()
+"function! SetNu()
+    "if (&relativenumber==1 || &number==1)
+        "set number
+    "endif
+"endfunc
+"function! SetRnu()
+    "if (&relativenumber==1 || &number==1)
+        "set relativenumber
+    "endif
+"endfunc
 "set nu
 set ignorecase "ig case when searching
 set hlsearch "highlight search
@@ -180,12 +187,12 @@ nnoremap <silent><C-F12> :cn<CR>
 inoremap <silent><C-F12> <ESC>:cn<CR>
 vnoremap <silent><C-F12> <ESC>:cn<CR>
 "use C-j C-k to change the buf
-nnoremap <silent><C-j> :bn<CR>
-inoremap <silent><C-j> <ESC>:bn<CR>
-vnoremap <silent><C-j> <ESC>:bn<CR>
-nnoremap <silent><C-k> :bp<CR>
-inoremap <silent><C-k> <ESC>:bp<CR>
-vnoremap <silent><C-k> <ESC>:bp<CR>
+nnoremap <silent><M-j> :bn<CR>
+inoremap <silent><M-j> <ESC>:bn<CR>
+vnoremap <silent><M-j> <ESC>:bn<CR>
+nnoremap <silent><M-k> :bp<CR>
+inoremap <silent><M-k> <ESC>:bp<CR>
+vnoremap <silent><M-k> <ESC>:bp<CR>
 "highlight corrent line
 set cursorline
 inoremap <silent>jk <esc>
