@@ -15,6 +15,12 @@ Bundle 'gmarik/vundle'
 "let g:clang_complete_patterns=1
 "let g:clang_auto_select=1
 Bundle 'Valloric/YouCompleteMe'
+let g:ycm_filetype_blacklist = {
+      \ 'notes' : 1,
+      \ 'markdown' : 1,
+      \ 'text' : 1,
+      \ 'gitcommit' : 1,
+      \}
 let g:ycm_global_ycm_extra_conf = '/home/pycq2002/.ycm_global_extra_conf.py'
 "inoremap <expr> <up> pumvisible() ? "\<C-p>":""
 "inoremap <expr> <down> pumvisible() ? "\<C-n>":""
