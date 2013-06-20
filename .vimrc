@@ -31,7 +31,7 @@ let NERDShutUp=1
 "configuration of NERDTree
 let NERDChristmasTree=1
 let NERDTreeAutoCenter=1
-let NERDTreeBookmarksFile='/home/pycq2002/.vim/bundle/nerdtree/Bookmarks'
+let NERDTreeBookmarksFile='/home/pycq2002/.vim/Bookmarks'
 let NERDTreeMouseMode=2
 let NERDTreeDirArrows=0
 let NERDTreeAutoDeleteBuffer=1
