@@ -69,6 +69,8 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_loc_list_height=5
+Bundle 'Lokaltog/vim-easymotion'
+let g:EasyMotion_leader_key = ';'
 "Bundle 'ervandew/supertab'
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 "let g:SuperTabRetainCompletionType=2
