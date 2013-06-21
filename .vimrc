@@ -1,4 +1,5 @@
 colorscheme molokai
+let g:rehash256 = 1
 set langmenu=en_US.UTF-8 
 set guifont=YaHei\ Consolas\ Hybrid\ 10.5
 let mapleader=","
@@ -31,7 +32,7 @@ let NERDShutUp=1
 "configuration of NERDTree
 let NERDChristmasTree=1
 let NERDTreeAutoCenter=1
-let NERDTreeBookmarksFile='/home/pycq2002/.vim/Bookmarks'
+let NERDTreeBookmarksFile='/home/pycq2002/.vim/bundle/nerdtree/Bookmarks'
 let NERDTreeMouseMode=2
 let NERDTreeDirArrows=0
 let NERDTreeAutoDeleteBuffer=1
@@ -71,6 +72,11 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_loc_list_height=5
 Bundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = ';'
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_working_path_mode = 'ra'
 "Bundle 'ervandew/supertab'
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 "let g:SuperTabRetainCompletionType=2
