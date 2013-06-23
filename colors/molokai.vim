@@ -70,7 +70,9 @@ hi Operator        guifg=#F92672
 
 " complete menu
 hi Pmenu           guifg=#66D9EF guibg=#000000
-hi PmenuSel                      guibg=#808080
+"hi PmenuSel        guibg=#808080
+"hi PmenuSel     guifg=#ffffff       guibg=#133293       gui=bold
+hi PmenuSel     guifg=#09ff00       guibg=#212936       gui=bold
 hi PmenuSbar                     guibg=#080808
 hi PmenuThumb      guifg=#66D9EF
 
@@ -136,6 +138,7 @@ end
 " Support for 256-color terminal
 "
 if &t_Co > 255
+    hi SyntasticWarningSign ctermfg=226
    if s:molokai_original == 1
       hi Normal                   ctermbg=234
       hi CursorLine               ctermbg=235   cterm=none
