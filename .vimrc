@@ -1,20 +1,16 @@
-colorscheme molokai
-let g:rehash256 = 1
-set langmenu=en_US.UTF-8 
-set guifont=YaHei\ Consolas\ Hybrid\ 10.5
+set langmenu=en_US.UTF-8
+"set guifont=YaHei\ Consolas\ Hybrid\ 10.5
+"set guifont=YaHei\ Consolas\ Hybrid\ for\ Powerline\ 10.5
+set guifont=YaHei\ Consolas\ Hybrid\ for\ Powerline:h14
 let mapleader=","
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 set nocp "not competitable
 filetype off
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=/usr/local/go/misc/vim/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-"Bundle 'Rip-Rip/clang_complete'
-"let g:clang_periodic_quickfix=1
-"let g:clang_complete_macros=1
-"let g:clang_complete_patterns=1
-"let g:clang_auto_select=1
 Bundle 'Valloric/YouCompleteMe'
 let g:ycm_filetype_blacklist = {
       \ 'notes' : 1,
@@ -22,10 +18,7 @@ let g:ycm_filetype_blacklist = {
       \ 'text' : 1,
       \ 'gitcommit' : 1,
       \}
-let g:ycm_global_ycm_extra_conf = '/home/pycq2002/.ycm_global_extra_conf.py'
-"inoremap <expr> <up> pumvisible() ? "\<C-p>":""
-"inoremap <expr> <down> pumvisible() ? "\<C-n>":""
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>":"\<CR>"
+let g:ycm_global_ycm_extra_conf = '~/.ycm_global_extra_conf.py'
 Bundle 'scrooloose/nerdtree'
 "configuration of NERDTree
 let NERDShutUp=1
@@ -44,27 +37,36 @@ Bundle 'SirVer/ultisnips'
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
-Bundle 'Lokaltog/vim-powerline'
-"powerline
+Bundle 'bling/vim-airline'
+"airline
 if has("gui_running")
     let g:isGUI=1
 else
     let g:isGUI=0
 endif
 if (g:isGUI)
-    let g:Powerline_symbols='fancy'
+  let g:airline_powerline_fonts = 1
+  let $GOPATH = "/Users/pycq2002/Projects/go"
 else
-    let g:Powerline_symbols='unicode'
+  let g:airline_symbols = {}
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_symbols.linenr = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.paste = ''
+  let g:airline_symbols.whitespace = ''
 endif
+"let g:airline_powerline_fonts = 1
 Bundle 'majutsushi/tagbar'
 nnoremap <silent><F8> :TagbarToggle<CR>
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'nathanaelkane/vim-indent-guides'
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=orange   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=cyan ctermbg=4
-let g:indent_guides_guide_size=1
-let g:indent_guides_auto_colors = 0
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'tpope/vim-surround'
+"Bundle 'Yggdroot/indentLine'
+"let g:indentLine_char = '┆'
+"let g:indentLine_color_term = 236
+"let g:indentLine_color_gui = '#3a3a3a'
 Bundle 'scrooloose/syntastic'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -80,11 +82,24 @@ let g:ctrlp_working_path_mode = 'ra'
 "Bundle 'ervandew/supertab'
 "let g:SuperTabDefaultCompletionType = "<c-x><c-u>"
 "let g:SuperTabRetainCompletionType=2
+Bundle 'Blackrush/vim-gocode'
+Bundle 'airblade/vim-gitgutter'
+let g:gitgutter_realtime = 0
+Bundle 'tomasr/molokai'
+"Bundle 'vim-ruby/vim-ruby'
+Bundle "pangloss/vim-javascript"
+let g:javascript_conceal = 1
+let javascript_enable_domhtmlcss = 1
 
 
 
 filetype plugin indent on
-syntax on 
+syntax on
+"Rainbow
+"au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 "colorscheme candycode
 """set guifont=Bitstream\ Vera\ Sans\ Mono\ 9
 "set foldmethod=syntax
@@ -95,7 +110,7 @@ set laststatus=2 "the status line
 "%m whether the file is changed
 "%r whether the file is readonly
 "%Y filetype
-"%{&fileformat} 
+"%{&fileformat}
 "%b the ASCII of current char in oct
 "%B the ASCII of current char in hex
 "%l current line number
@@ -119,37 +134,26 @@ set imcmdline
 set expandtab "use spaces instead of tab
 set smarttab
 set softtabstop=4
-set shiftwidth=4 
+set shiftwidth=4
 set tabstop=4
 
-set rnu "show the relativenumber of lines
+
+"set rnu "show the relativenumber of lines
 set nu
-"au FocusLost * :call SetNu()
-"au FocusGained * :call SetRnu()
-"au InsertEnter * :call SetNu()
-"au InsertLeave * :call SetRnu()
-"function! SetNu()
-    "if (&relativenumber==1 || &number==1)
-        "set number
-    "endif
-"endfunc
-"function! SetRnu()
-    "if (&relativenumber==1 || &number==1)
-        "set relativenumber
-    "endif
-"endfunc
-"set nu
 set ignorecase "ig case when searching
 set hlsearch "highlight search
 set incsearch "increasing search You know it!
 set showmatch "show the brackets matches
 set background=dark "I like it
+colorscheme molokai
+let g:rehash256 = 1
 set t_Co=256 "make the colorscheme more beautiful
 set history=50
 set showcmd "show command
 set backspace=indent,eol,start
 set encoding=utf-8
-set shell=/bin/sh 
+"set shell=/usr/local/bin/zsh
+set shell=/bin/sh
 set tw=78 "auto new line
 set autoread "reload the file when changed in some way set splitright
 set ffs=unix,dos,mac
@@ -157,6 +161,8 @@ if version>=700
     set showtabline=0
 endif
 set lazyredraw
+set ttyfast
+set ttyscroll=3
 
 
 set wildmenu "wild menu~~~"
@@ -176,9 +182,12 @@ set mouse=a "use mouse"
 autocmd FileType * setlocal completeopt=longest,menuone
 autocmd FileType cpp setlocal completeopt=menu
 autocmd BufEnter * cd %:p:h "change dictionary when enter new buffer
-"close the priview buf when select one
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif 
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"func! formatSourceCode()
+    "if FileType=='go'
+        "exec ":Fmt"
+    "endif
+"endfunc
+autocmd BufWritePost *.go exec ":Fmt"
 func! Do_Make()
   set makeprg=make
   exec "make"
@@ -224,16 +233,10 @@ nnoremap <right> <nop>
 inoremap <right> <nop>
 vnoremap <right> <nop>
 
-"Toggle Menu and Toolbar
-set guioptions-=m
-set guioptions-=T
-map <silent> <S-F8> :if &guioptions =~# 'T' <Bar>
-\set guioptions-=T <Bar>
-\set guioptions-=m <bar>
-\else <Bar>
-\set guioptions+=T <Bar>
-\set guioptions+=m <Bar>
-\endif<CR>
+
+nnoremap <leader>rw :RainbowParenthesesToggle <CR>
+inoremap <leader>rw :RainbowParenthesesToggle <CR>
+vnoremap <leader>rw :RainbowParenthesesToggle <CR>
 
 augroup filetype
     au! BufNewFile,BufRead SCons* set filetype=scons
@@ -243,8 +246,3 @@ augroup filetype
 augroup END
 "makefile will use tab
 autocmd FileType makefile setlocal noexpandtab
-
-
-"use x-terminal to see man page
-command -nargs=0 -range ManInGnomeTerm !x-terminal-emulator -e '/home/pycq2002/.vim/man.sh <cword>'
-nnoremap <silent> K :ManInGnomeTerm<CR><CR>
