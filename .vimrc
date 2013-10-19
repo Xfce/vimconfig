@@ -25,7 +25,7 @@ let NERDShutUp=1
 "configuration of NERDTree
 let NERDChristmasTree=1
 let NERDTreeAutoCenter=1
-let NERDTreeBookmarksFile='/home/pycq2002/.vim/bundle/nerdtree/Bookmarks'
+let NERDTreeBookmarksFile='/Users/pycq2002/.vim/bundle/nerdtree/Bookmarks'
 let NERDTreeMouseMode=2
 let NERDTreeDirArrows=0
 let NERDTreeAutoDeleteBuffer=1
@@ -87,9 +87,10 @@ Bundle 'airblade/vim-gitgutter'
 let g:gitgutter_realtime = 0
 Bundle 'tomasr/molokai'
 "Bundle 'vim-ruby/vim-ruby'
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
 let g:javascript_conceal = 1
 let javascript_enable_domhtmlcss = 1
+Bundle 'flazz/vim-colorschemes'
 
 
 
@@ -137,8 +138,11 @@ set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 
+"settings for golang
+autocmd FileType go setlocal noexpandtab nolist
 
-"set rnu "show the relativenumber of lines
+
+set rnu "show the relativenumber of lines
 set nu
 set ignorecase "ig case when searching
 set hlsearch "highlight search
@@ -187,7 +191,7 @@ autocmd BufEnter * cd %:p:h "change dictionary when enter new buffer
         "exec ":Fmt"
     "endif
 "endfunc
-autocmd BufWritePost *.go exec ":Fmt"
+autocmd BufWritePre *.go exec ":Fmt"
 func! Do_Make()
   set makeprg=make
   exec "make"
